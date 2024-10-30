@@ -1,0 +1,39 @@
+{% extends 'base.html' %}
+
+{% block title %}登录/login{% endblock %}
+
+{% block head %}
+    <script src="{% static 'jquery/jquery-3.7.1.min.js' %}"></script>
+    <script src="{% static 'js/login.js' %}"></script>
+{% endblock %}
+
+{% block main %}
+    <div class="alert alert-warning d-flex m-auto col-4" role="alert" id="error-alert" style="display:none">
+        邮箱或密码输入错误！！！
+    </div>
+    <div style="max-width: 380px" class="m-auto">
+        <form id="example-form" method="post">
+            {% csrf_token %}
+            <div class="text-center"><img class="mb-4" src="{% static 'img/爬虫01.png' %}" alt="" style="width:92px; height:57px"></div>
+            <h1 class="h3 mb-3 fw-normal text-center">Please sign in</h1>
+            <div class="form-floating mb-2">
+                <input type="email" name="email" class="form-control" id="floatingInput" placeholder="name@example.com">
+                <label for="floatingInput">邮箱</label>
+            </div>
+            <div class="form-floating">
+                <input type="password" name="password" class="form-control" id="floatingPassword"
+                       placeholder="Password">
+                <label for="floatingPassword">密码</label>
+            </div>
+
+            <div class="checkbox mb-3 mt-3">
+                <label>
+                    <input type="checkbox" name="remember" value="remember-me"> 记住我
+                </label>
+            </div>
+            
+            <button class="w-100 btn btn-lg btn-primary" id="home_button" type="submit"> 登录/Sign in</button>
+            <p class="mt-5 mb-3 text-muted text-center">© 2003–2024</p>
+        </form>
+    </div>
+{% endblock %}
